@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self'; media-src 'self' blob:;">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universal X Studio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">X</div><div><strong>UNIVERSAL X</strong><span>STUDIO</span></div></div>
+      <button class="nav-item active" data-view="home"><span class="nav-icon">⌂</span> Home</button>
+      <div class="nav-label">WORKSPACE</div>
+      <button class="nav-item" data-view="files"><span class="nav-icon">▤</span> Files &amp; editor</button>
+      <button class="nav-item" data-view="qr"><span class="nav-icon">▦</span> QR scanner</button>
+      <button class="nav-item" data-view="build"><span class="nav-icon">⌘</span> Build &amp; package</button>
+      <button class="nav-item" data-view="ai"><span class="nav-icon">✦</span> AI builder</button>
+      <div class="nav-label">CONNECT</div>
+      <button class="nav-item" data-view="integrations"><span class="nav-icon">⌁</span> Integrations</button>
+      <div class="sidebar-bottom"><div class="avatar">UX</div><div><strong>Local workspace</strong><span>Private on this device</span></div><span class="online-dot"></span></div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar"><div class="breadcrumb">Workspace <span>/</span> <b id="crumb">Home</b></div><div class="top-actions"><span class="local-badge"><i></i> LOCAL MODE</span><button class="icon-button" id="openTop" title="Open file">↥</button><button class="primary small" id="newTop">＋ New file</button></div></header>
+      <section id="view-home" class="view active">
+        <div class="welcome-row"><div><div class="eyebrow">YOUR CREATIVE WORKSPACE</div><h1>Make something <span>excellent.</span></h1><p class="muted">A home for your files, ideas, and builds.</p></div><button class="primary" id="startCreate">＋ Create a file</button></div>
+        <div class="stats-grid"><div class="stat-card"><span class="stat-icon purple">✦</span><div><small>Workspace</small><strong>Ready to create</strong></div><span class="stat-tag">LOCAL</span></div><div class="stat-card"><span class="stat-icon blue">▤</span><div><small>Editor</small><strong>Text &amp; web files</strong></div><span class="stat-tag">READY</span></div><div class="stat-card"><span class="stat-icon green">⌁</span><div><small>Connections</small><strong>Choose your tools</strong></div><span class="stat-tag">SET UP</span></div></div>
+        <div class="section-heading"><div><h2>Start with a tool</h2><p>Choose a workspace to jump into.</p></div><button class="text-button" data-goto="files">View all tools <span>→</span></button></div>
+        <div class="tool-grid">
+          <button class="tool-card" data-goto="files"><span class="tool-icon violet">▤</span><strong>Files &amp; editor</strong><small>Create and edit text, code, CSV, and web files.</small><span class="card-arrow">↗</span></button>
+          <button class="tool-card" data-goto="qr"><span class="tool-icon cyan">▦</span><strong>QR scanner</strong><small>Scan a QR code from an image or your camera.</small><span class="card-arrow">↗</span></button>
+          <button class="tool-card" data-goto="build"><span class="tool-icon orange">⌘</span><strong>Build &amp; package</strong><small>Explore platform build workflows and requirements.</small><span class="card-arrow">↗</span></button>
+          <button class="tool-card" data-goto="ai"><span class="tool-icon pink">✦</span><strong>AI builder</strong><small>Connect an AI provider to start a project.</small><span class="card-arrow">↗</span></button>
+        </div>
+        <div class="bottom-callout"><div class="callout-symbol">✧</div><div><strong>Your studio, your way.</strong><p>Connect GitHub, AI providers, and deployment services from Integrations.</p></div><button class="secondary" data-goto="integrations">Explore integrations <span>→</span></button></div>
+      </section>
+
+      <section id="view-files" class="view">
+        <div class="page-heading"><div><div class="eyebrow">WORKSPACE</div><h1>Files &amp; editor</h1><p class="muted">Create or edit lightweight text, code, and data files.</p></div><div class="button-row"><button class="secondary" id="openFile">↥ Open file</button><button class="primary" id="newFile">＋ New file</button></div></div>
+        <div class="editor-layout"><div class="editor-panel"><div class="editor-toolbar"><div class="file-tab"><span class="file-dot"></span><span id="fileName">untitled.txt</span><span id="dirtyMark" class="dirty hidden">●</span></div><div class="button-row"><button class="editor-action" id="previewBtn">Preview</button><button class="editor-action save-action" id="saveFile">Save <span>⌘S</span></button></div></div><textarea id="editor" spellcheck="false" placeholder="Start typing, or create a new file…"></textarea><div class="editor-footer"><span id="fileStatus">No file open</span><span id="charCount">0 characters</span></div></div><div class="editor-side"><div class="side-card"><div class="side-title">QUICK CREATE</div><button class="quick-create" data-template="txt"><span>▤</span> Text note <b>.txt</b></button><button class="quick-create" data-template="html"><span>〈〉</span> Web page <b>.html</b></button><button class="quick-create" data-template="css"><span>✳</span> Stylesheet <b>.css</b></button><button class="quick-create" data-template="csv"><span>▦</span> Spreadsheet data <b>.csv</b></button><button class="quick-create" data-template="json"><span>{ }</span> JSON data <b>.json</b></button></div><div class="notice-card"><span>ⓘ</span><p>Office documents, archives, media, and project builds need format-specific tools. This starter can open them through your system and provides a text editor for supported formats.</p></div></div></div>
+      </section>
+
+      <section id="view-qr" class="view">
+        <div class="page-heading"><div><div class="eyebrow">CAMERA &amp; IMAGE TOOLS</div><h1>QR scanner</h1><p class="muted">Decode a QR code from an image or your camera.</p></div></div>
+        <div class="qr-layout"><div class="qr-panel"><div class="qr-panel-head"><div><strong>Scan a code</strong><p>Choose an image, or allow camera access.</p></div><span class="live-pill"><i></i> READY</span></div><div class="qr-stage" id="qrStage"><div class="qr-placeholder"><div class="qr-frame"><span>▦</span></div><strong>Your scan appears here</strong><small>Upload an image or start your camera.</small></div><video id="cameraVideo" playsinline muted class="hidden"></video><canvas id="qrCanvas" class="hidden"></canvas></div><div class="button-row qr-controls"><label class="secondary upload-button">↑ Upload image<input type="file" id="qrUpload" accept="image/*" hidden></label><button class="primary" id="cameraButton">◎ Start camera</button><button class="secondary hidden" id="stopCamera">Stop camera</button></div><div id="qrResult" class="qr-result hidden"></div></div><div class="qr-info"><div class="side-card"><div class="side-title">PRIVACY FIRST</div><p>Image scanning happens locally in the app. Camera access is requested only when you start scanning.</p><div class="privacy-row"><span>⌕</span><div><strong>On-device scanning</strong><small>Images are not uploaded.</small></div></div></div><div class="notice-card"><span>ⓘ</span><p>Scanning uses the camera or an image file you select. Allow camera permission when your operating system prompts you.</p></div></div></div>
+      </section>
+
+      <section id="view-build" class="view">
+        <div class="page-heading"><div><div class="eyebrow">DEVELOPER WORKSPACE</div><h1>Build &amp; package</h1><p class="muted">Plan builds for the platforms you want to ship to.</p></div></div>
+        <div class="build-banner"><div class="build-orbit">⌘</div><div><div class="eyebrow">BUILD TOOLCHAIN</div><h2>Bring your project. Choose your platform.</h2><p>Builds run on your machine with the platform SDKs and tools you install.</p></div></div>
+        <div class="platform-grid"><div class="platform-card"><span>▣</span><strong>Windows</strong><small>.NET, MSBuild, Visual Studio</small><em>Desktop builds supported by local SDK</em></div><div class="platform-card"><span>◉</span><strong>macOS &amp; iOS</strong><small>Xcode and Apple SDKs</small><em>Requires macOS for native builds</em></div><div class="platform-card"><span>◈</span><strong>Android</strong><small>Android Studio / SDK</small><em>Install the Android toolchain</em></div><div class="platform-card"><span>◌</span><strong>Linux</strong><small>Target-specific compiler / SDK</small><em>Depends on project framework</em></div><div class="platform-card"><span>▱</span><strong>Chromebook</strong><small>Web, Android, or Linux app</small><em>Choose a supported app format</em></div></div>
+        <div class="notice-card wide-notice"><span>ⓘ</span><p>Universal X Studio does not yet execute build commands. Running builds safely requires project-aware configuration, installed SDKs, and confirmation before commands are launched.</p></div>
+      </section>
+
+      <section id="view-ai" class="view">
+        <div class="page-heading"><div><div class="eyebrow">IDEAS TO PROJECTS</div><h1>AI builder</h1><p class="muted">Choose a provider and use its own tools to create with AI.</p></div></div>
+        <div class="ai-hero"><div class="ai-spark">✦</div><div><h2>Build with the AI you trust.</h2><p>Universal X Studio is provider-neutral. Connect through each provider's official site or app.</p></div></div><div class="provider-grid"><button class="provider-card" data-url="https://chatgpt.com"><span class="provider-logo">◎</span><strong>ChatGPT</strong><small>OpenAI</small><b>Open website ↗</b></button><button class="provider-card" data-url="https://claude.ai"><span class="provider-logo claude">✳</span><strong>Claude</strong><small>Anthropic</small><b>Open website ↗</b></button><button class="provider-card" data-url="https://copilot.microsoft.com"><span class="provider-logo copilot">◉</span><strong>Copilot</strong><small>Microsoft</small><b>Open website ↗</b></button><button class="provider-card" data-url="https://www.meta.ai"><span class="provider-logo meta">∞</span><strong>Meta AI</strong><small>Meta</small><b>Open website ↗</b></button></div><div class="notice-card wide-notice"><span>ⓘ</span><p>These are links to third-party services, not embedded AI integrations. Provider accounts, terms, and API access are managed by each provider.</p></div>
+      </section>
+
+      <section id="view-integrations" class="view">
+        <div class="page-heading"><div><div class="eyebrow">YOUR ECOSYSTEM</div><h1>Integrations</h1><p class="muted">Quick links to GitHub and deployment platforms.</p></div></div><div class="integration-list"><div class="integration-card"><div class="integration-icon github">⌘</div><div class="integration-copy"><strong>GitHub</strong><small>Code hosting, collaboration, and source control.</small></div><span class="integration-status">QUICK LINK</span><button class="secondary integration-open" data-url="https://github.com">Open GitHub ↗</button></div><div class="integration-card"><div class="integration-icon netlify">N</div><div class="integration-copy"><strong>Netlify</strong><small>Deploy websites and web applications.</small></div><span class="integration-status">QUICK LINK</span><button class="secondary integration-open" data-url="https://app.netlify.com">Open Netlify ↗</button></div><div class="integration-card"><div class="integration-icon render">R</div><div class="integration-copy"><strong>Render</strong><small>Deploy web services, sites, and background workers.</small></div><span class="integration-status">QUICK LINK</span><button class="secondary integration-open" data-url="https://dashboard.render.com">Open Render ↗</button></div></div><div class="notice-card wide-notice"><span>ⓘ</span><p>These links open the providers in your default browser. Account linking, repository actions, and deployment automation are not enabled in this starter.</p></div>
+      </section>
+      <div id="toast" class="toast hidden"></div>
+    </main>
+  </div>
+  <script src="node_modules/jsqr/dist/jsQR.js"></script>
+  <script src="renderer.js"></script>
+</body>
+</html>
